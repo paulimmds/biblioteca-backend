@@ -8,3 +8,9 @@ class Obra(db.Model):
     editora = db.Column(db.String(255), nullable=False)
     foto = db.Column(db.String(255), nullable=False)
     autores = db.Column(db.String(255), nullable=False)
+
+    def update(self, data):
+        for key, value in data.items():
+            setattr(self, key, value)
+        
+        return self
